@@ -9,7 +9,7 @@ const App: React.FC = () => {
 
   setTimeout(() => {
     setLoading(false); 
-  }, 500);
+  }, 1000);
 
   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTicker(event.target.value);
@@ -30,7 +30,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app">
+    <div className={`app fade-in`}>
       {loading && <Loading />}
       <div id="left" className='box'>
         <h2>Resources</h2>
