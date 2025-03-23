@@ -16,6 +16,11 @@ body {
   height: 100vh;
 }
 
+hr{
+  width: 100%;
+  border: 1px solid var(--bg-gradient-end);
+}
+
 button,
 input {
   appearance: none;
@@ -28,6 +33,16 @@ input {
   margin: 5px;
   font-family: var(--font-family);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button{
+  background-color: #505350;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
 button:hover,
