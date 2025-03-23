@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
   setTimeout(() => {
     setLoading(false); 
-  }, 1000);
+  }, 1500);
 
   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTicker(event.target.value);
