@@ -25,11 +25,11 @@ const App: React.FC = () => {
   
     try {
       const response = await fetch("http://localhost:8000/ticker", {
-        method: "POST", // Ensure this is POST
+        method: "POST", 
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ticker }), // Ensure this is sending JSON
+        body: JSON.stringify({ ticker }),
       });
   
       if (!response.ok) {
@@ -38,6 +38,7 @@ const App: React.FC = () => {
   
       const data = await response.json();
       setResponse(data);
+      window.location.reload();
     } catch (error) {
       console.error("Error fetching prediction:", error);
       alert("Error fetching prediction. Check console for details.");
