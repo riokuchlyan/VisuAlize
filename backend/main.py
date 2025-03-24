@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from utils import sec_api
+from api import sec_api
 from pydantic import BaseModel
 from typing import Dict
 from fastapi.middleware.cors import CORSMiddleware
-from utils import yahoo_api
+from api import yahoo_api
 import openai
 
 

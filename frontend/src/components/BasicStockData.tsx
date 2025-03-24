@@ -17,7 +17,7 @@ const BasicStockData: React.FC = () => {
     fetchStockData();
   }, []);
 
-  if (!data) return <p>Loading...</p>;
+  if (!data) return <p>Enter stock ticker</p>;
 
   const parsedData = (() => {
     const trimmed = data.trim();
