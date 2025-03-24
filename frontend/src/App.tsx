@@ -83,7 +83,7 @@ const App: React.FC = () => {
         <Reports />
       </div>
       <div id="middle" className='box'>
-        <h2>Models</h2>
+        <h2>Visuals</h2>
         <hr></hr>
           <div className='input'>
             <input value={ticker} onChange={inputChange} placeholder='Stock ticker'></input>
