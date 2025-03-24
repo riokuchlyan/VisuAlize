@@ -1,0 +1,6 @@
+.input {
+    display: flex;
+    outline: none;
+    position: absolute;
+    bottom: 40px;
+  }
