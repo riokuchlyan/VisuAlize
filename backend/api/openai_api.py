@@ -1,6 +1,6 @@
 import requests
 
-def get_ai_response(data, input_text):
+def get_ai_response(data, input_text, API_KEY):
     url = "https://api.together.xyz/v1/chat/completions"
     headers = {"Authorization": f"Bearer {API_KEY}"}
     #optimized prompt to get the answer based on the provided information
