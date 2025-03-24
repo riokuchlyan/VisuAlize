@@ -57,13 +57,6 @@ input:active {
   box-shadow: 0 2px 5px var(--box-shadow);
 }
 
-.input {
-  display: flex;
-  outline: none;
-  position: absolute;
-  bottom: 40px;
-}
-
 button:focus,
 input:focus {
   border-color: var(--bg-gradient-start);
