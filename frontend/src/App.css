@@ -119,7 +119,7 @@ input:focus {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   .app {
     flex-direction: column;
     .app {

@@ -3,8 +3,32 @@ import Loading from './components/Loading';
 import './App.css';
 import StockData from './components/BasicStockData';
 import AIChat from './components/AIChat';
+import Reports from './components/Reports';
 
 const App: React.FC = () => {
+
+  useEffect(() => {
+    const handleWheel = (event: WheelEvent) => {
+      if (event.ctrlKey || event.metaKey) {
+        event.preventDefault();
+      }
+    };
+  
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && (event.key === '+' || event.key === '-' || event.key === '=')) {
+        event.preventDefault();
+      }
+    };
+  
+    document.addEventListener("wheel", handleWheel, { passive: false });
+    document.addEventListener("keydown", handleKeyDown);
+  
+    return () => {
+      document.removeEventListener("wheel", handleWheel);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   const [loading, setLoading] = useState<boolean>(true);
   const [ticker, setTicker] = useState<string>(''); 
   const [response, setResponse] = useState<any>(null);
@@ -55,6 +79,8 @@ const App: React.FC = () => {
         <hr></hr>
         <h3>General Information: </h3>
         <StockData />
+        <h3 style={{ marginTop: "50px" }}>Reports</h3>
+        <Reports />
       </div>
       <div id="middle" className='box'>
         <h2>Models</h2>

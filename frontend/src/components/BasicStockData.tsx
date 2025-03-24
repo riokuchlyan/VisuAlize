@@ -17,7 +17,41 @@ const BasicStockData: React.FC = () => {
     fetchStockData();
   }, []);
 
-  return <p>{data}</p>;
-};
+  if (!data) return <p>Loading...</p>;
+
+  const parsedData = (() => {
+    const trimmed = data.trim();
+    const withoutBraces =
+      trimmed.startsWith("{") && trimmed.endsWith(")")
+        ? trimmed.slice(1, -1)
+        : trimmed.startsWith("{") && trimmed.endsWith("}")
+        ? trimmed.slice(1, -1)
+        : trimmed;
+      
+    const keyValuePairs = withoutBraces.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
+    
+    return keyValuePairs.map(pair => {
+      const [rawKey, rawValue] = pair.split(/:(.+)/);
+      const key = rawKey.trim().replace(/^"|"$/g, "");
+      let value = rawValue.trim();
+      if (value.startsWith('"') && value.endsWith('"')) {
+        value = value.slice(1, -1);
+      }
+      return { key, value };
+    });
+  })();
+
+  return (
+    <table>
+      <tbody>
+        {parsedData.map(({ key, value }) => (
+          <tr key={key}>
+            <td>{key}</td>
+            <td>{value}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+);};
 
 export default BasicStockData;
