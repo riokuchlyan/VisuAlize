@@ -2,6 +2,7 @@ import yfinance as yf
 import json
 import numpy as np
 import pandas as pd
+from datetime import datetime
 
 def get_time_series_data(ticker, period="1y", interval="1d"):
     stock = yf.Ticker(ticker)
@@ -102,3 +103,39 @@ def get_basic_stock_data(ticker):
         "dailyLow": info.get("regularMarketDayLow")
     }
     return json.dumps(basic_data)
+
+def get_date():
+    return datetime.now().strftime("%Y-%m-%d")
+
+def get_formatted_time_series(ticker, period="1mo", interval="1d"):
+    stock = yf.Ticker(ticker)
+    df = stock.history(period=period, interval=interval)
+    df.reset_index(inplace=True)
+    output = []
+    for _, row in df.iterrows():
+        output.append({
+            "date": row["Date"].strftime("%Y-%m-%d"),
+            "open": row["Open"],
+            "high": row["High"],
+            "low": row["Low"],
+            "close": row["Close"],
+            "volume": int(row["Volume"])
+        })
+    return json.dumps(output)
+
+def get_moving_average_data(ticker, period="1y", interval="1d"):
+    stock = yf.Ticker(ticker)
+    df = stock.history(period=period, interval=interval)
+    df.reset_index(inplace=True)
+    df["moving_avg_50"] = df["Close"].rolling(window=50).mean()
+    df["moving_avg_200"] = df["Close"].rolling(window=200).mean()
+    output = []
+    for _, row in df.iterrows():
+        output.append({
+            "date": row["Date"].strftime("%Y-%m-%d"),
+            "close": row["Close"],
+            "moving_avg_50": row["moving_avg_50"],
+            "moving_avg_200": row["moving_avg_200"]
+        })
+    return json.dumps(output)
+
