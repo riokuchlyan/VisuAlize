@@ -32,3 +32,6 @@ app.add_middleware(
 async def root(req: Request):
     environment: Environment = req.app.state.environment
     return {"message": "Welcome to the VisuAlize backend"}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
