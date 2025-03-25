@@ -16,7 +16,7 @@ const AIInput = () => {
         }
       
         try {
-          const response = await fetch("http://localhost:8000/input", {
+          const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/input`, {
             method: "POST", 
             headers: {
               "Content-Type": "application/json",

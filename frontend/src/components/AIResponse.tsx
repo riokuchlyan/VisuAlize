@@ -6,7 +6,7 @@ const AIResponse: React.FC = () => {
   useEffect(() => {
     const fetchAIResponse = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/ai_analysis');
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/ai_analysis`);
         const text = await response.text();
         setData(text.substring(1,text.length-1));
       } catch (error) {

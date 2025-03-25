@@ -6,7 +6,7 @@ const Reports: React.FC = () => {
   useEffect(() => {
     const fetchLink = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/filings_link');
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/filings_link`);
         const text = await response.text();
         setData(text);
       } catch (error) {

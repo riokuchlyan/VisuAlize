@@ -6,7 +6,7 @@ const BasicStockData: React.FC = () => {
   useEffect(() => {
     const fetchStockData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/basic_data');
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/basic_data`);
         const text = await response.json();
         setData(text);
       } catch (error) {
