@@ -22,7 +22,7 @@ const Reports: React.FC = () => {
   
 
   return (
-    <a href={data} target='_blank'>SEC EDGAR Filings</a>
+    <a href={data} rel='noreferrer' target='_blank'>SEC EDGAR Filings</a>
 );};
 
 export default Reports;
