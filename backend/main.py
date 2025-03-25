@@ -4,6 +4,7 @@ from api.routes import router
 from contextlib import asynccontextmanager
 from fastapi import Request
 from globals import Environment
+import uvicorn
 
 def setup_environment(app: FastAPI):
     enviornment = Environment()
@@ -34,4 +35,5 @@ async def root(req: Request):
     return {"message": "Welcome to the VisuAlize backend"}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.getenv("PORT", 8000))  # Default to 8000 if PORT is not set
+    uvicorn.run(app, host="0.0.0.0", port=port)
