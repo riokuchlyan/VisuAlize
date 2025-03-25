@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Loading from './components/Loading';
 import './App.css';
 import StockData from './components/BasicStockData';
-import AIChat from './components/AIChat';
+import AIInput from './components/AIInput';
 import TickerInput from './components/TickerInput';
 import Reports from './components/Reports';
 import Visuals from './components/Visuals';
+import AIResponse from './components/AIResponse';
 
 const App: React.FC = () => {
 
@@ -55,7 +56,8 @@ const App: React.FC = () => {
       <div id="right" className='box'>
         <h2>Analysis</h2>
         <hr></hr>
-        <AIChat />
+        <AIResponse />
+        <AIInput />
       </div>
     </div>
   );

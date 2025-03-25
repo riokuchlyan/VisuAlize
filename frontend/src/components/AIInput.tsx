@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 
-const TickerInput = () => {
+const AIInput = () => {
 
-    const [ticker, setTicker] = useState<string>(''); 
+    const [input, setinput] = useState<string>(''); 
     const [response, setResponse] = useState<any>(null);
 
     const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTicker(event.target.value);
+        setinput(event.target.value);
       };
     
       const submit = async () => {
-        if (!ticker) {
-          alert("Please enter a stock ticker!");
+        if (!input) {
+          alert("Please enter a question!");
           return;
         }
       
         try {
-          const response = await fetch("http://localhost:8000/ticker", {
+          const response = await fetch("http://localhost:8000/input", {
             method: "POST", 
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ ticker }),
+            body: JSON.stringify({ input }),
           });
       
           if (!response.ok) {
@@ -39,10 +39,10 @@ const TickerInput = () => {
 
     return (
         <div className='input'>
-            <input value={ticker} onChange={inputChange} placeholder='Stock ticker'></input>
+            <input value={input} onChange={inputChange} placeholder='Ask questions'></input>
             <button onClick={submit}>Submit</button>
           </div>
     );
 }
 
-export default TickerInput;
+export default AIInput;

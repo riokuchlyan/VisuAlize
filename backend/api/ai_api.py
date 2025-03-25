@@ -1,6 +1,11 @@
 import requests
+import os
+from dotenv import load_dotenv
 
-def get_ai_response(data, input_text, API_KEY):
+load_dotenv()
+API_KEY=os.getenv("TOGETHER_AI_KEY")
+
+def get_ai_response(data, input_text):
     url = "https://api.together.xyz/v1/chat/completions"
     headers = {"Authorization": f"Bearer {API_KEY}"}
     #optimized prompt to get the answer based on the provided information
