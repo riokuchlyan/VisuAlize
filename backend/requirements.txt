@@ -9,3 +9,4 @@ pydantic
 typing
 numpy
 datetime
+pydantic_settings
