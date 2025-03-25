@@ -1,10 +1,11 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+import os
+from fastapi import FastAPI # type: ignore
+from fastapi.middleware.cors import CORSMiddleware # type: ignore
 from api.routes import router
 from contextlib import asynccontextmanager
-from fastapi import Request
+from fastapi import Request # type: ignore
 from globals import Environment
-import uvicorn
+import uvicorn # type: ignore
 
 def setup_environment(app: FastAPI):
     enviornment = Environment()
@@ -35,5 +36,5 @@ async def root(req: Request):
     return {"message": "Welcome to the VisuAlize backend"}
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000))  # Default to 8000 if PORT is not set
+    port = int(os.getenv("PORT", 8000))  
     uvicorn.run(app, host="0.0.0.0", port=port)

@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd # type: ignore
 
 def getCIK(ticker):
     cik_data = pd.read_csv("./data/cik.csv", delimiter='\t', header=None)

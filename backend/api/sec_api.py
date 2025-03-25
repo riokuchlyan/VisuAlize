@@ -1,4 +1,4 @@
-import requests
+import requests # type: ignore
 import json
 from utils.get_cik import getCIK
 

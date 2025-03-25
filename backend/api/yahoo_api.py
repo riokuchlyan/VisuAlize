@@ -1,7 +1,7 @@
-import yfinance as yf
+import yfinance as yf # type: ignore
 import json
-import numpy as np
-import pandas as pd
+import numpy as np # type: ignore
+import pandas as pd # type: ignore
 from datetime import datetime
 
 def get_time_series_data(ticker, period="1y", interval="1d"):
