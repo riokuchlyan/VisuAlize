@@ -5,3 +5,6 @@ def get_basic_data(ticker: str):
 
 def get_submissions(ticker: str):
     return sec_api.get_submissions(ticker)
+
+def get_all_data(ticker: str):
+    return yahoo_api.get_all_company_data(ticker)
