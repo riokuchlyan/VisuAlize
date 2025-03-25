@@ -7,8 +7,8 @@ const AIResponse: React.FC = () => {
     const fetchAIResponse = async () => {
       try {
         const response = await fetch('http://127.0.0.1:8000/ai_analysis');
-        const text = await response.json();
-        setData(text);
+        const text = await response.text();
+        setData(text.substring(1,text.length-1));
       } catch (error) {
         console.error('Error fetching AI response:', error);
       }
