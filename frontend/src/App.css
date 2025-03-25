@@ -22,6 +22,7 @@ hr{
   border: 1px solid var(--bg-gradient-end);
 }
 
+a,
 button,
 input {
   appearance: none;
@@ -82,7 +83,7 @@ input:focus {
 
 .box {
   background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
   border-radius: 12px;
   border: 2px solid rgba(30, 144, 255, 0.3); 
@@ -102,12 +103,12 @@ input:focus {
 #left,
 #right {
   flex: 1;
-  padding: 10px;
+  padding: 20px;
 }
 
 #middle {
   flex: 2;
-  padding: 10px;
+  padding: 20px;
 }
 
 .fade-in {

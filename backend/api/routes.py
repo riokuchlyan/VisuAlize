@@ -47,6 +47,10 @@ def get_latest_input() -> Dict[str, str]:
 def get_analysis():
     return ai_analysis.get_ai_analysis(latest_ticker, latest_input)
 
+@router.get("/filings_link")
+def get_filings():
+    return fetch_data.get_filings_link(latest_ticker)
+
 @router.get("/basic_data")
 def basic_data():
     return fetch_data.get_basic_data(latest_ticker)
