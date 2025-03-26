@@ -43,8 +43,10 @@ const App: React.FC = () => {
         <h2>Resources</h2>
         <hr></hr>
         <h3>General Information: </h3>
+        <hr></hr>
         <StockData />
         <h3 style={{ marginTop: "50px" }}>Reports</h3>
+        <hr style={{ marginBottom: "30px" }}></hr>
         <Reports />
       </div>
       <div id="middle" className='box'>
@@ -56,6 +58,11 @@ const App: React.FC = () => {
       <div id="right" className='box'>
         <h2>Analysis</h2>
         <hr></hr>
+        <h3>Technicals</h3>
+        <hr></hr>
+        <h3>Valuation</h3>
+        <hr></hr>
+        <h3>Chat</h3>
         <AIResponse />
         <AIInput />
       </div>
