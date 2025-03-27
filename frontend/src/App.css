@@ -178,4 +178,7 @@ input:focus {
   #middle {
     flex: 1;
 }
+  #middle{
+    order: -1;
+  }
 }
