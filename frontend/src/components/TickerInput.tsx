@@ -38,7 +38,7 @@ const TickerInput = () => {
       };
 
     return (
-        <div className='input'>
+        <div style={{ marginTop: "15px" }} className='input'>
             <input value={ticker} onChange={inputChange} placeholder='Stock ticker'></input>
             <button onClick={submit}>Submit</button>
           </div>

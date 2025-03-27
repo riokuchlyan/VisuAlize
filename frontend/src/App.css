@@ -1,6 +1,6 @@
 :root {
   --bg-color: #000000;
-  --bg-gradient-start: #666666;
+  --bg-gradient-start: #3c3c3c;
   --bg-gradient-end: #29292b;
   --box-bg: rgba(255, 255, 255, 0.12);
   --box-shadow: rgba(0, 0, 0, 0.25);
@@ -50,7 +50,6 @@ input {
 
 input {
   max-width: 50%;
-  width: 90%;
   box-sizing: border-box; 
 }
 
@@ -59,7 +58,7 @@ button {
   color: white;
   font-weight: 600;
   cursor: pointer;
-  width: 100%;
+  max-width: 50%;
   border: none;
 }
 
@@ -141,6 +140,11 @@ input:focus {
 .fade-in {
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
+}
+
+#sub-divide{
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 @keyframes fadeIn {
