@@ -3,6 +3,7 @@ from pydantic import BaseModel # type: ignore
 from typing import Dict
 from services import fetch_data
 from services import ai_analysis
+from services import sentiment
 
 router = APIRouter()
 
@@ -54,3 +55,7 @@ def get_filings():
 @router.get("/basic_data")
 def basic_data():
     return fetch_data.get_basic_data(latest_ticker)
+
+@router.get("sentiment")
+def get_sentiment():
+    return sentiment.getPrediction(latest_ticker)

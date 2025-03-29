@@ -7,6 +7,12 @@ import TickerInput from './components/TickerInput';
 import Reports from './components/Reports';
 import Visuals from './components/Visuals';
 import AIResponse from './components/AIResponse';
+import Technicals from './components/Technicals';
+import { toggleTechnicals } from './components/Technicals';
+import Sentiment from './components/Sentiment';
+import { toggleSentiment } from './components/Sentiment';
+import Valuation from './components/Valuation';
+import { toggleValuation } from './components/Valuation';
 
 const App: React.FC = () => {
 
@@ -44,8 +50,8 @@ const App: React.FC = () => {
         <hr></hr>
         <h3>General Information: </h3>
         <StockData />
-        <h3 style={{ marginTop: "50px" }}>Reports</h3>
-        <hr style={{ marginBottom: "30px" }}></hr>
+        <hr style={{ marginTop: "30px" }}></hr>
+        <h3 style={{ marginTop: "30px", marginBottom: "30px"}}>Reports</h3>
         <Reports />
       </div>
       <div id="middle" className='box'>
@@ -57,11 +63,14 @@ const App: React.FC = () => {
       <div id="right" className='box'>
         <h2>Analysis</h2>
         <hr style={{ marginBottom: "30px" }}></hr>
-        <a>Technicals</a>
+        <button onClick={toggleTechnicals}>Technicals</button>
+        <Technicals />
         <hr id="sub-divide"></hr>
-        <a>Valuation</a>
+        <button onClick={toggleValuation}>Valuation</button>
+        <Valuation />
         <hr id="sub-divide"></hr>
-        <a>News Sentiment</a>
+        <button onClick={toggleSentiment}>Sentiment</button>
+        <Sentiment />
         <hr id="sub-divide"></hr>
         <h3>Chat</h3>
         <AIResponse />
