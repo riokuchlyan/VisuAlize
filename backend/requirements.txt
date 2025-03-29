@@ -10,3 +10,4 @@ typing
 numpy
 datetime
 pydantic_settings
+textblob
