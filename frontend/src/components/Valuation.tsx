@@ -26,7 +26,7 @@ const Valuation: React.FC = () => {
 
     return(
     <div id='valuation'>
-        <p>test</p>
+        <p>{data}</p>
     </div>
 )
 }

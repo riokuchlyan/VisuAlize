@@ -26,7 +26,7 @@ const Technicals: React.FC = () => {
 
     return(
     <div id='technicals'>
-        <p>test</p>
+        <p>{data}</p>
     </div>
 )
 }
