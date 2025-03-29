@@ -59,3 +59,11 @@ def basic_data():
 @router.get("/sentiment")
 def get_sentiment():
     return sentiment.getPrediction(latest_ticker)
+
+@router.get("/technicals")
+def get_technicals():
+    return ai_analysis.get_ai_analysis_technicals(latest_ticker)
+
+@router.get("/valuation")
+def get_valuation():
+    return ai_analysis.get_ai_analysis_valuation(latest_ticker)
