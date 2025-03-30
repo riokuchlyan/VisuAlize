@@ -138,3 +138,10 @@ def get_moving_average_data(ticker, period="1y", interval="1d"):
             "moving_avg_200": row["moving_avg_200"]
         })
     return json.dumps(output)
+
+def get_stock_data(ticker, period="1mo"):
+    stock = yf.Ticker(ticker)
+    hist = stock.history(period=period)
+    data = hist[['Close']].reset_index()
+    data['Date'] = data['Date'].astype(str) 
+    return data.to_dict(orient="records")

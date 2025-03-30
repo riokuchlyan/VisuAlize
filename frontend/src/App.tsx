@@ -5,7 +5,7 @@ import StockData from './components/BasicStockData';
 import AIInput from './components/AIInput';
 import TickerInput from './components/TickerInput';
 import Reports from './components/Reports';
-import Visuals from './components/Visuals';
+import StockChart from './components/StockChart';
 import AIResponse from './components/AIResponse';
 import Technicals from './components/Technicals';
 import { toggleTechnicals } from './components/Technicals';
@@ -57,7 +57,7 @@ const App: React.FC = () => {
       <div id="middle" className='box'>
         <h2>Visuals</h2>
         <hr></hr>
-        <Visuals />
+        <StockChart />
         <TickerInput />
       </div>
       <div id="right" className='box'>

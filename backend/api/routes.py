@@ -67,3 +67,7 @@ def get_technicals():
 @router.get("/valuation")
 def get_valuation():
     return ai_analysis.get_ai_analysis_valuation(latest_ticker)
+
+@router.get("/stock_data")
+def stock_data():
+    return fetch_data.get_stock_data(latest_ticker)

@@ -12,3 +12,6 @@ def get_all_data(ticker: str):
 
 def get_filings_link(ticker: str):
     return f'https://www.sec.gov/edgar/browse/?CIK={getCIK(ticker)}'
+
+def get_stock_data(ticker: str):
+    return yahoo_api.get_stock_data(ticker)
