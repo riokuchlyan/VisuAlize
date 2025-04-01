@@ -2,30 +2,30 @@
 
 **VisuAlize** is a full-stack web application that provides AI-driven financial analysis and interactive market reports, allowing users to analyze stock tickers through intuitive visualizations and dynamic insights.  
 
-## 🔹 Project Overview  
+## Project Overview  
 
 VisuAlize enables users to input a company name or stock ticker and receive AI-powered financial insights, including key metrics, market trends, and dynamically generated graphs. Unlike many financial data platforms, VisuAlize offers unrestricted analysis, making high-quality financial information accessible without paywalls.  
 
-### 🌟 Key Features  
+### Key Features  
 
-- **🔍 Company Search & Analysis**  
+- **Company Search & Analysis**  
   - Users input a company name or stock ticker.  
   - The system retrieves and displays general company information, including sector, market cap, and key statistics.  
 
-- **📊 Generated Market Reports**  
+- **Generated Market Reports**  
   - Automatically generates a structured market report for the selected company.  
   - Uses machine learning techniques to extract and summarize key financial insights.  
 
-- **💬 Chat-Style Financial Queries**  
+- **Chat-Style Financial Queries**  
   - Interactive chat interface where users can ask specific questions about a company’s performance, financials, or trends.  
   - AI-powered responses provide in-depth analysis with data-driven explanations.  
 
-- **📈 Dynamic Financial Visualizations**  
+- **Dynamic Financial Visualizations**  
   - Real-time financial graphs generated using **D3.js** and other visualization tools.  
   - Stock price trends, revenue growth, and other financial metrics displayed interactively.  
   - AI-enhanced graphs that identify key patterns and trends.  
 
-- **🚀 No Paywalls**  
+- **No Paywalls**  
   - Unlike traditional financial analysis tools, VisuAlize provides unrestricted access to its reports and insights.  
 
 ## 🔹 Project Structure  
@@ -48,7 +48,7 @@ VisuAlize enables users to input a company name or stock ticker and receive AI-p
   - Chat-style interface for AI-driven company analysis.  
   - Clean and modern UI for financial insights.  
 
-## 📌 Usage Instructions  
+## Usage Instructions  
 
 1. **Visit the Live Site:** [VisuAlize](https://visualize-navy.vercel.app)  
 2. **Enter a Stock Ticker or Company Name** in the input bar.  
@@ -56,7 +56,7 @@ VisuAlize enables users to input a company name or stock ticker and receive AI-p
 4. **Ask AI-powered financial questions** in the chat interface.  
 5. **Analyze Dynamic Graphs** to visualize key metrics and trends.  
 
-## 🔹 Future Improvements  
+## Future Improvements  
 
 - **Support for additional financial metrics** (e.g., EBITDA, debt ratios).  
 - **Expanded AI capabilities** for deeper trend analysis.  
