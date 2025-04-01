@@ -4,6 +4,7 @@ from typing import Dict
 from services import fetch_data
 from services import ai_analysis
 from services import sentiment
+import json
 from fastapi.responses import PlainTextResponse  # Import this for proper text responses
 
 router = APIRouter()
@@ -71,4 +72,5 @@ def get_valuation():
 
 @router.get("/stock_data")
 def stock_data():
-    return fetch_data.get_stock_data(latest_ticker)
+    data = fetch_data.get_stock_data(latest_ticker)
+    return json.loads(data)
