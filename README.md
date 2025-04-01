@@ -28,7 +28,7 @@ VisuAlize enables users to input a company name or stock ticker and receive AI-p
 - **No Paywalls**  
   - Unlike traditional financial analysis tools, VisuAlize provides unrestricted access to its reports and insights.  
 
-## 🔹 Project Structure  
+## Project Structure  
 
 ### Backend (FastAPI)  
 - **Built with FastAPI**, the backend handles data retrieval, analysis, and AI-driven insights.  
