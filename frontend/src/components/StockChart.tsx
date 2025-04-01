@@ -6,14 +6,28 @@ const StockChart: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [dimensions, setDimensions] = useState({ width: 400, height: 200 });
 
-  // 🔹 Define stock data inside the component
-  const [stockData] = useState([
-    { date: "2024-03-01", close: 150 },
-    { date: "2024-03-02", close: 155 },
-    { date: "2024-03-03", close: 160 },
-    { date: "2024-03-04", close: 158 },
-    { date: "2024-03-05", close: 165 },
-  ]);
+
+    interface StockDatum {
+      date: string;
+      close: number;
+    }
+    
+    const [stockData, setData] = useState<StockDatum[]>([]);
+    
+    useEffect(() => {
+      const fetchLink = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/stock_data`);
+        const jsonData: StockDatum[] = await response.json();
+        setData(jsonData);
+      } catch (error) {
+        console.error('Error fetching stock data:', error);
+      }
+      };
+    
+      fetchLink();
+    }, []);
+
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -65,15 +79,6 @@ const StockChart: React.FC = () => {
       .attr("height", height)
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
-
-    // 🔹 Add title
-    svg.append("text")
-      .attr("x", innerWidth / 2)
-      .attr("y", -10)
-      .attr("text-anchor", "middle")
-      .attr("font-size", "16px")
-      .attr("font-weight", "bold")
-      .text("Stock Price Over Time");
 
     svg
       .append("g")
