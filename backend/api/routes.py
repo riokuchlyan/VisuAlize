@@ -4,6 +4,7 @@ from typing import Dict
 from services import fetch_data
 from services import ai_analysis
 from services import sentiment
+from fastapi.responses import PlainTextResponse  # Import this for proper text responses
 
 router = APIRouter()
 
@@ -48,8 +49,8 @@ def get_latest_input() -> Dict[str, str]:
 def get_analysis():
     return ai_analysis.get_ai_analysis(latest_ticker, latest_input)
 
-@router.get("/filings_link")
-def get_filings():
+@router.get("/filings_link", response_class=PlainTextResponse)
+def get_filings():    
     return fetch_data.get_filings_link(latest_ticker)
 
 @router.get("/basic_data")
