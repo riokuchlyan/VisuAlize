@@ -13,6 +13,7 @@ import Sentiment from './components/Sentiment';
 import { toggleSentiment } from './components/Sentiment';
 import Valuation from './components/Valuation';
 import { toggleValuation } from './components/Valuation';
+import VolatilityMap from './components/VolatilityMap';
 
 const App: React.FC = () => {
 
@@ -57,7 +58,10 @@ const App: React.FC = () => {
       <div id="middle" className='box'>
         <h2>Visuals</h2>
         <hr></hr>
-        <StockChart />
+        <div id="charts">
+          <StockChart />
+          <VolatilityMap />
+        </div>
         <TickerInput />
       </div>
       <div id="right" className='box'>
