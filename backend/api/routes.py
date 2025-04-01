@@ -5,7 +5,7 @@ from services import fetch_data
 from services import ai_analysis
 from services import sentiment
 import json
-from fastapi.responses import PlainTextResponse  # Import this for proper text responses
+from fastapi.responses import PlainTextResponse
 
 router = APIRouter()
 
