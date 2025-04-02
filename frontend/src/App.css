@@ -169,9 +169,13 @@ input:focus {
     flex-direction: column;
   }
   .box {
-    width: 85%;
-    margin: 10px;;
+    width: 80%;
+    margin: 20px;;
     overflow: hidden;
+  }
+  .box:hover {
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   }
   #left,
   #right,
