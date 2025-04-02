@@ -5,8 +5,7 @@ import cloud from 'd3-cloud';
 
 const WordCloud: React.FC = () => {
     const svgRef = useRef<SVGSVGElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null); // Reference to the parent div
-
+    const containerRef = useRef<HTMLDivElement>(null); 
 
     interface WordFrequency {
         text: string;
@@ -31,7 +30,6 @@ const WordCloud: React.FC = () => {
     }, []);
 
     const processText = (text: string): WordFrequency[] => {
-
         const wordsArray = text.toLowerCase().match(/\b[a-zA-Z]{2,}\b/g) || [];
 
         const stopwords = new Set([
@@ -53,23 +51,23 @@ const WordCloud: React.FC = () => {
 
         return Object.entries(wordCounts)
             .map(([text, value]) => ({ text, value }))
-            .sort((a, b) => b.value - a.value) 
+            .sort((a, b) => b.value - a.value)
             .slice(0, 50); 
     };
 
     useEffect(() => {
-        if (!wordData.length) return;
+        if (!wordData.length || !containerRef.current) return;
+
+        const containerWidth = containerRef.current.clientWidth;
+        const containerHeight = containerRef.current.clientHeight;
 
         if (svgRef.current) {
             d3.select(svgRef.current).selectAll('*').remove();
         }
 
-        const width = 500;
-        const height = 400;
-
         const layout = cloud()
-            .size([width, height])
-            .words(wordData.map(word => ({ text: word.text, size: word.value * 5 }))) // Scale size
+            .size([containerWidth, containerHeight]) 
+            .words(wordData.map(word => ({ text: word.text, size: word.value * 5 })))
             .padding(5)
             .rotate(() => (Math.random() > 0.5 ? 90 : 0))
             .font('Impact')
@@ -82,10 +80,10 @@ const WordCloud: React.FC = () => {
             if (!svgRef.current) return;
 
             const svg = d3.select(svgRef.current)
-                .attr('width', width)
-                .attr('height', height)
+                .attr('width', containerWidth) 
+                .attr('height', containerHeight) 
                 .append('g')
-                .attr('transform', `translate(${width / 2}, ${height / 2})`);
+                .attr('transform', `translate(${containerWidth / 2}, ${containerHeight / 2})`);
 
             svg.selectAll('text')
                 .data(layoutWords)
@@ -101,7 +99,7 @@ const WordCloud: React.FC = () => {
     }, [wordData]);
 
     return (
-        <div>
+        <div ref={containerRef} style={{ width: '100%', height: '400px' }}> 
             <svg ref={svgRef} />
         </div>
     );
