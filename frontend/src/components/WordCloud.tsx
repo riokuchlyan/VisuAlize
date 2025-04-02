@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 // @ts-ignore
 import cloud from 'd3-cloud';
@@ -6,19 +6,27 @@ import cloud from 'd3-cloud';
 const WordCloud: React.FC = () => {
     const svgRef = useRef<SVGSVGElement>(null);
 
-    useEffect(() => {
-        const words = [
-            { text: 'React', value: 80 },
-            { text: 'D3', value: 30 },
-            { text: 'JavaScript', value: 20 },
-            { text: 'TypeScript', value: 25 },
-            { text: 'HTML', value: 15 },
-            { text: 'CSS', value: 10 },
-            { text: 'SVG', value: 18 },
-            { text: 'Web', value: 12 },
-            { text: 'Graph', value: 28 },
-            { text: 'Visualization', value: 22 }
-        ];
+    interface NewsFrequency {
+        text: string;
+        value: number;
+      }
+
+        const [newsData, setData] = useState<NewsFrequency[]>([]);
+        
+        useEffect(() => {
+          const fetchLink = async () => {
+          try {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/news`);
+            const jsonData: NewsFrequency[] = await response.json();
+            setData(jsonData);
+          } catch (error) {
+            console.error('Error fetching stock data:', error);
+          }
+          };
+        
+          fetchLink();
+        }, []);
+
 
 
         if (svgRef.current) {
@@ -31,7 +39,7 @@ const WordCloud: React.FC = () => {
 
         const layout = cloud()
             .size([width, height])
-            .words(words.map(word => ({ text: word.text, size: word.value })))
+            .words(newsData.map(word => ({ text: word.text, size: word.value })))
             .padding(5)
             .rotate(() => Math.random() > 0.5 ? 90 : 0)
             .font('Impact')
@@ -40,7 +48,7 @@ const WordCloud: React.FC = () => {
 
         layout.start();
 
-        function draw(layoutWords: any[]) {
+    function draw(layoutWords: any[]) {
             if (!svgRef.current) return;
             
             const svg = d3.select(svgRef.current)
@@ -60,7 +68,6 @@ const WordCloud: React.FC = () => {
                 .attr('transform', d => `translate(${d.x}, ${d.y})rotate(${d.rotate})`)
                 .text(d => d.text);
         }
-    }, []);
 
     return (
         <div>

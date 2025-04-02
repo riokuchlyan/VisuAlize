@@ -49,7 +49,7 @@ const App: React.FC = () => {
       <div id="left" className='box'>
         <h2>Resources</h2>
         <hr></hr>
-        <h3>General Information: </h3>
+        <h3>General Information</h3>
         <StockData />
         <hr style={{ marginTop: "30px" }}></hr>
         <h3 style={{ marginTop: "30px", marginBottom: "30px"}}>Reports</h3>
