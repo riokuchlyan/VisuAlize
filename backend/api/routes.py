@@ -74,3 +74,7 @@ def get_valuation():
 def stock_data():
     data = fetch_data.get_stock_data(latest_ticker)
     return json.loads(data)
+
+@router.get("/news")
+def get_news():
+    return fetch_data.get_news_data(latest_ticker)

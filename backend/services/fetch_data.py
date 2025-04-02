@@ -1,4 +1,4 @@
-from api import sec_api, yahoo_api
+from api import sec_api, yahoo_api, news_api
 from utils.get_cik import getCIK
 
 def get_basic_data(ticker: str):
@@ -15,3 +15,6 @@ def get_filings_link(ticker: str):
 
 def get_stock_data(ticker: str):
     return yahoo_api.save_close_values_to_json(ticker)
+
+def get_news_data(ticker: str):
+    return news_api.getNews(ticker)

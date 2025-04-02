@@ -13,7 +13,7 @@ import Sentiment from './components/Sentiment';
 import { toggleSentiment } from './components/Sentiment';
 import Valuation from './components/Valuation';
 import { toggleValuation } from './components/Valuation';
-import VolatilityMap from './components/VolatilityMap';
+import WordCloud from './components/WordCloud';
 
 const App: React.FC = () => {
 
@@ -60,7 +60,7 @@ const App: React.FC = () => {
         <hr></hr>
         <div id="charts">
           <StockChart />
-          <VolatilityMap />
+          <WordCloud />
         </div>
         <TickerInput />
       </div>
