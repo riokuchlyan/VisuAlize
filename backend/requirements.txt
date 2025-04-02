@@ -11,3 +11,4 @@ numpy
 datetime
 pydantic_settings
 textblob
+scikit-learn
