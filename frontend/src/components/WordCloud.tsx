@@ -5,6 +5,8 @@ import cloud from 'd3-cloud';
 
 const WordCloud: React.FC = () => {
     const svgRef = useRef<SVGSVGElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null); // Reference to the parent div
+
 
     interface WordFrequency {
         text: string;
