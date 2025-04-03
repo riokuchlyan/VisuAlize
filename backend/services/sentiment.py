@@ -9,14 +9,14 @@ def getPrediction(text):
     if sentiment <= 0.1 and sentiment >= -0.1:
         return "Not enough reliable data to make a prediction."
     elif sentiment < 0 and sentiment > -0.2:
-        return "Slightly low sentiment: Stock price may fall. Confidence: low"
+        return "Slightly low sentiment: Confidence: low"
     elif sentiment <= -0.2 and sentiment > -0.5:
-        return "Low sentiment: Stock price may fall. Confidence: medium"
+        return "Low sentiment: Confidence: medium"
     elif sentiment <= -0.5:
-        return "Very low sentiment: Stock price may fall. Confidence: high"
+        return "Very low sentiment: Confidence: high"
     elif sentiment > 0 and sentiment < 0.2:
-        return "Slightly high sentiment: Stock price may rise. Confidence: low"
+        return "Slightly high sentiment: Confidence: low"
     elif sentiment >= 0.2 and sentiment < 0.5:
-        return "High sentiment: Stock price may rise. Confidence: medium"
+        return "High sentiment: Confidence: medium"
     elif sentiment >= 0.5:
-        return "Very high sentiment: Stock price will rise. Confidence: high"
+        return "Very high sentiment: Confidence: high"
