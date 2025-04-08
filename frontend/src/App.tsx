@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Loading from './components/Loading';
 import HomePage from './pages/HomePage';
-import TestPage from './pages/TestPage';
 import CompanyPage from './pages/CompanyPage';
 
 const App: React.FC = () => {
@@ -21,7 +20,6 @@ const App: React.FC = () => {
         {!loading && (
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/test" element={<TestPage />} />
             <Route path="/company/:ticker" element={<CompanyPage />} />
           </Routes>
         )}
