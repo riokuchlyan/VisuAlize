@@ -40,3 +40,13 @@ def get_ai_response_valuation(data):
     ]
     )
     return (completion.choices[0].message.content)
+
+def get_ai_response_summary(data):
+    completion = client.chat.completions.create(
+    model="gpt-4o-mini",
+    store=True,
+    messages=[
+        {"role": "user", "content": f"Summarize the following data in a format so that text to speech can be applied to it. The following data is finanical data, so summarize it in a way a news reporter would do it or so: {data}. Under no circumstances should your response be over 1500 characters."}
+    ]
+    )
+    return (completion.choices[0].message.content)

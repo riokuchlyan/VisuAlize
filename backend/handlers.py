@@ -36,3 +36,6 @@ def handle_get_filings_link(ticker: str):
 
 def handle_get_news_data(ticker: str):
     return news_client.get_news(ticker)
+
+def handle_get_ai_analysis_summary(ticker: str):
+    return openai_client.get_ai_response_summary(handle_get_basic_data(ticker))
