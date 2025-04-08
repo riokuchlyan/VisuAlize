@@ -1,17 +1,15 @@
 # internal
+from config import OPEN_AI_KEY
 
 # external
 from openai import OpenAI 
-from dotenv import load_dotenv
 
 # built-in
 import os
 
-load_dotenv()
-
 def get_ai_response(data, input_text):
     client = OpenAI(
-  api_key=os.getenv("TOGETHER_AI_KEY")
+  api_key=OPEN_AI_KEY
 )
     completion = client.chat.completions.create(
     model="gpt-4o-mini",

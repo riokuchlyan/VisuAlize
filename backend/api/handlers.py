@@ -1,4 +1,5 @@
 # internal
+from config import OPEN_AI_KEY, NEWS_API_KEY
 from services import fetch_data
 from backend.services import openai_client
 
@@ -6,11 +7,11 @@ from backend.services import openai_client
 
 # built-in
 
-def test_get_ai_analysis(ticker: str, input_text: str):
+def handle_get_ai_analysis(ticker: str, input_text: str):
     return openai_client.get_ai_response(fetch_data.get_basic_data(ticker), input_text)
 
-def test_get_ai_analysis_technicals(ticker: str):
+def handle_get_ai_analysis_technicals(ticker: str):
     return openai_client.get_ai_response_technicals(fetch_data.get_basic_data(ticker))
 
-def test_get_ai_analysis_valuation(ticker: str):
+def handle_get_ai_analysis_valuation(ticker: str):
     return openai_client.get_ai_response_valuation(fetch_data.get_basic_data(ticker))

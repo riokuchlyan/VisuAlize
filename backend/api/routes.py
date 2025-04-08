@@ -2,6 +2,7 @@
 from services import fetch_data
 from services import ai_analysis
 from services import sentiment
+import handlers
 
 # external
 from fastapi import APIRouter 
@@ -53,7 +54,7 @@ def get_latest_input() -> Dict[str, str]:
 
 @router.get("/ai_analysis")
 def get_analysis():
-    return ai_analysis.get_ai_analysis(latest_ticker, latest_input)
+    return handlers.handle_get_ai_analysis(latest_ticker, latest_input)
 
 @router.get("/filings_link", response_class=PlainTextResponse)
 def get_filings():    
@@ -69,11 +70,11 @@ def get_sentiment():
 
 @router.get("/technicals")
 def get_technicals():
-    return ai_analysis.get_ai_analysis_technicals(latest_ticker)
+    return handlers.handle_get_ai_analysis_technicals(latest_ticker)
 
 @router.get("/valuation")
 def get_valuation():
-    return ai_analysis.get_ai_analysis_valuation(latest_ticker)
+    return handlers.handle_get_ai_analysis_valuation(latest_ticker)
 
 @router.get("/stock_data")
 def stock_data():
