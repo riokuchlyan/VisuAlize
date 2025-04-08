@@ -1,5 +1,4 @@
 # internal
-from services import fetch_data
 from backend import handlers
 
 # external
@@ -24,7 +23,7 @@ class InputRequest(BaseModel):
 
 @router.get("/submissions")
 async def get_submissions():
-    return fetch_data.get_submissions(latest_ticker)
+    return handlers.handle_get_submissions(latest_ticker)
 
 @router.post("/ticker")
 def predict(request: TickerRequest) -> Dict[str, str]:
@@ -56,11 +55,11 @@ def get_analysis():
 
 @router.get("/filings_link", response_class=PlainTextResponse)
 def get_filings():    
-    return fetch_data.get_filings_link(latest_ticker)
+    return handlers.handle_get_filings_link(latest_ticker)
 
 @router.get("/basic_data")
 def basic_data():
-    return fetch_data.get_basic_data(latest_ticker)
+    return handlers.handle_get_basic_data(latest_ticker)
 
 @router.get("/sentiment")
 def get_sentiment():
@@ -76,10 +75,10 @@ def get_valuation():
 
 @router.get("/stock_data")
 def stock_data():
-    data = fetch_data.get_stock_data(latest_ticker)
+    data = handlers.handle_get_stock_data(latest_ticker)
     return json.loads(data)
 
 @router.get("/news")
 def get_news():
-    data = fetch_data.get_news_data(latest_ticker)
+    data = handlers.handle_get_news_data(latest_ticker)
     return json.loads(data)

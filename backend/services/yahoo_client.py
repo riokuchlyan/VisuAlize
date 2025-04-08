@@ -7,7 +7,6 @@ import pandas as pd
 
 # built-in
 import json
-from datetime import datetime
 
 def get_basic_stock_data(ticker):
     stock = yf.Ticker(ticker)
