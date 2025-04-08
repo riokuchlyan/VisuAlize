@@ -35,4 +35,4 @@ def handle_get_filings_link(ticker: str):
     return f'https://www.sec.gov/edgar/browse/?CIK={get_CIK(ticker)}'
 
 def handle_get_news_data(ticker: str):
-    return news_client.getNews(ticker)
+    return news_client.get_news(ticker)

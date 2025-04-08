@@ -12,7 +12,7 @@ import re
 
 url = 'https://newsapi.org/v2/everything?'
 
-def getNews(query):
+def get_news(query):
     parameters = {
         'q': str(query),
         'pageSize': 100,

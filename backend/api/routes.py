@@ -1,4 +1,3 @@
-# internal
 from handlers import *
 
 # external
@@ -22,7 +21,7 @@ class InputRequest(BaseModel):
     input: str
 
 @router.get("/submissions")
-async def get_submissions():
+async def get_submissions() -> dict:
     return handle_get_submissions(latest_ticker)
 
 @router.post("/ticker")
@@ -50,35 +49,35 @@ def get_latest_input() -> Dict[str, str]:
     return {"error": "No input submitted"}
 
 @router.get("/ai_analysis")
-def get_analysis():
+def get_analysis() -> dict:
     return handle_get_ai_analysis(latest_ticker, latest_input)
 
 @router.get("/filings_link", response_class=PlainTextResponse)
-def get_filings():    
+def get_filings() -> str:    
     return handle_get_filings_link(latest_ticker)
 
 @router.get("/basic_data")
-def basic_data():
+def basic_data() -> dict:
     return handle_get_basic_data(latest_ticker)
 
 @router.get("/sentiment")
-def get_sentiment():
+def get_sentiment() -> dict:
     return handle_get_sentiment(latest_ticker)
 
 @router.get("/technicals")
-def get_technicals():
+def get_technicals() -> dict:
     return handle_get_ai_analysis_technicals(latest_ticker)
 
 @router.get("/valuation")
-def get_valuation():
+def get_valuation() -> dict:
     return handle_get_ai_analysis_valuation(latest_ticker)
 
 @router.get("/stock_data")
-def stock_data():
+def stock_data() -> dict:
     data = handle_get_stock_data(latest_ticker)
     return json.loads(data)
 
 @router.get("/news")
-def get_news():
+def get_news() -> dict:
     data = handle_get_news_data(latest_ticker)
     return json.loads(data)
