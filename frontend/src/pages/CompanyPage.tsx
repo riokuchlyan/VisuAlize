@@ -10,6 +10,7 @@ import Technicals, { toggleTechnicals } from '../components/Technicals';
 import Sentiment, { toggleSentiment } from '../components/Sentiment';
 import Valuation, { toggleValuation } from '../components/Valuation';
 import WordCloud from '../components/WordCloud';
+import ReturnHome from '../components/ReturnHome';
 
 const CompanyPage: React.FC = () => {
     const { ticker } = useParams();
@@ -23,6 +24,8 @@ const CompanyPage: React.FC = () => {
         <hr style={{ marginTop: "30px" }} />
         <h3 style={{ marginTop: "30px", marginBottom: "30px" }}>Reports</h3>
         <Reports />
+        <hr style={{ marginTop: "30px" }} />
+        <ReturnHome />
       </div>
       <div id="middle" className='box'>
         <h2>Company Analysis for: {ticker?.toUpperCase()}</h2>
