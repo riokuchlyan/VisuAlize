@@ -1,9 +1,13 @@
-from openai import OpenAI # type: ignore
+# internal
+
+# external
+from openai import OpenAI 
+from dotenv import load_dotenv
+
+# built-in
 import os
-from dotenv import load_dotenv # type: ignore
 
 load_dotenv()
-
 
 def get_ai_response(data, input_text):
     client = OpenAI(

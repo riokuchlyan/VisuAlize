@@ -1,11 +1,16 @@
-from fastapi import APIRouter # type: ignore
-from pydantic import BaseModel # type: ignore
-from typing import Dict
+# internal
 from services import fetch_data
 from services import ai_analysis
 from services import sentiment
-import json
+
+# external
+from fastapi import APIRouter 
+from pydantic import BaseModel 
+from typing import Dict
 from fastapi.responses import PlainTextResponse
+
+# built-in
+import json
 
 router = APIRouter()
 

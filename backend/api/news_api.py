@@ -1,9 +1,13 @@
+# internal
+
+# external
+from dotenv import load_dotenv
 import requests
-import datetime
+
+# built-in
 import json
 import os
 import re
-from dotenv import load_dotenv # type: ignore
 
 load_dotenv()
 

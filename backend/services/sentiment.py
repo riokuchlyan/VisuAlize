@@ -1,5 +1,10 @@
-from textblob import TextBlob
+# internal
 from api.news_api import getNews
+
+# external
+from textblob import TextBlob
+
+# built-in
 
 def getSentiment(text):
     return TextBlob(getNews(text)).sentiment.polarity

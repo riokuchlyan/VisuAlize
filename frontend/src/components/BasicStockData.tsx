@@ -28,7 +28,7 @@ const BasicStockData: React.FC = () => {
         ? trimmed.slice(1, -1)
         : trimmed;
       
-    const keyValuePairs = withoutBraces.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
+    const keyValuePairs = withoutBraces.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/); //looks for even number of quotes and only splits quotes outside of content
     
     return keyValuePairs.map(pair => {
       const [rawKey, rawValue] = pair.split(/:(.+)/);

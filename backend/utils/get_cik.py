@@ -1,6 +1,11 @@
-import pandas as pd # type: ignore
+# internal
 
-def getCIK(ticker):
+# external
+import pandas as pd
+
+# built-in
+
+def getCIK(ticker: str) -> str:
     cik_data = pd.read_csv("./data/cik.csv", delimiter='\t', header=None)
     data = cik_data.set_index(0)
     try:

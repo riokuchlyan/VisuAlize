@@ -1,6 +1,10 @@
-import requests # type: ignore
-import json
+# internal
 from utils.get_cik import getCIK
+
+# external
+import requests
+
+# built-in
 
 def get_submissions(ticker):
     try:

@@ -1,5 +1,10 @@
-from api import sec_api, yahoo_api, news_api
+# internal
 from utils.get_cik import getCIK
+from api import sec_api, yahoo_api, news_api
+
+# external
+
+# built-in
 
 def get_basic_data(ticker: str):
     return yahoo_api.get_basic_stock_data(ticker)
