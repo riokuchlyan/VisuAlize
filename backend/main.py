@@ -1,9 +1,13 @@
-import os
-from fastapi import FastAPI # type: ignore
-from fastapi.middleware.cors import CORSMiddleware # type: ignore
+# internal
+
+# external
+from fastapi import FastAPI 
+from fastapi.middleware.cors import CORSMiddleware 
 from api.routes import router
-from fastapi import Request # type: ignore
-import uvicorn # type: ignore
+import uvicorn 
+
+# built-in
+import os
 
 app = FastAPI()
 
