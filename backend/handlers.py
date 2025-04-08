@@ -1,6 +1,6 @@
 # internal
-from backend.services import news_client
-from backend.services import openai_client
+from services import news_client
+from services import openai_client
 from services import sentiment
 from services import yahoo_client
 from utils.get_cik import get_CIK
