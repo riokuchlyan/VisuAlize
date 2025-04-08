@@ -17,20 +17,20 @@ const TickerInput = () => {
       
         try {
           const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/ticker`, {
-            method: "POST", 
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ ticker }),
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ticker }),
           });
       
           if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error(`HTTP error! Status: ${response.status}`);
           }
       
           const data = await response.json();
           setResponse(data);
-          window.location.reload();
+          window.location.href = '/company/' + ticker;
         } catch (error) {
           console.error("Error fetching prediction:", error);
           alert("Error fetching prediction. Check console for details.");

@@ -1,65 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import Loading from './components/Loading';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import StockData from './components/BasicStockData';
-import AIInput from './components/AIInput';
-import TickerInput from './components/TickerInput';
-import Reports from './components/Reports';
-import StockChart from './components/StockChart';
-import AIResponse from './components/AIResponse';
-import Technicals from './components/Technicals';
-import { toggleTechnicals } from './components/Technicals';
-import Sentiment from './components/Sentiment';
-import { toggleSentiment } from './components/Sentiment';
-import Valuation from './components/Valuation';
-import { toggleValuation } from './components/Valuation';
-import WordCloud from './components/WordCloud';
+import Loading from './components/Loading';
+import HomePage from './pages/HomePage';
+import TestPage from './pages/TestPage';
+import CompanyPage from './pages/CompanyPage';
 
 const App: React.FC = () => {
-
   const [loading, setLoading] = useState<boolean>(true);
-  setTimeout(() => {
-    setLoading(false); 
-  }, 1500);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div className={`app fade-in`}>
-      {loading && <Loading />}
-      <div id="left" className='box'>
-        <h2>Resources</h2>
-        <hr></hr>
-        <h3>General Information</h3>
-        <StockData />
-        <hr style={{ marginTop: "30px" }}></hr>
-        <h3 style={{ marginTop: "30px", marginBottom: "30px"}}>Reports</h3>
-        <Reports />
+    <Router>
+      <div className="app fade-in">
+        {loading && <Loading />}
+        {!loading && (
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/test" element={<TestPage />} />
+            <Route path="/company/:ticker" element={<CompanyPage />} />
+          </Routes>
+        )}
       </div>
-      <div id="middle" className='box'>
-        <h2>Visuals</h2>
-        <hr></hr>
-        <div id="charts">
-          <StockChart />
-          <WordCloud />
-        </div>
-        <TickerInput />
-      </div>
-      <div id="right" className='box'>
-        <h2>Analysis</h2>
-        <hr style={{ marginBottom: "30px" }}></hr>
-        <button onClick={toggleTechnicals}>Technicals</button>
-        <Technicals />
-        <hr id="sub-divide"></hr>
-        <button onClick={toggleValuation}>Valuation</button>
-        <Valuation />
-        <hr id="sub-divide"></hr>
-        <button onClick={toggleSentiment}>Sentiment</button>
-        <Sentiment />
-        <hr id="sub-divide"></hr>
-        <h3>Chat</h3>
-        <AIResponse />
-        <AIInput />
-      </div>
-    </div>
+    </Router>
   );
 };
 
