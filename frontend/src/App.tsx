@@ -17,27 +17,6 @@ import WordCloud from './components/WordCloud';
 
 const App: React.FC = () => {
 
-  //disable scrolling or zooming
-  useEffect(() => {
-    const handleWheel = (event: WheelEvent) => {
-      if (event.ctrlKey || event.metaKey) {
-        event.preventDefault();
-      }
-    };
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if ((event.metaKey || event.ctrlKey) && (event.key === '+' || event.key === '-' || event.key === '=')) {
-        event.preventDefault();
-      }
-    };
-    document.addEventListener("wheel", handleWheel, { passive: false });
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("wheel", handleWheel);
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
-  //loading screen
   const [loading, setLoading] = useState<boolean>(true);
   setTimeout(() => {
     setLoading(false); 
