@@ -1,6 +1,6 @@
 # internal
 from services import fetch_data
-import handlers
+from backend import handlers
 
 # external
 from fastapi import APIRouter 

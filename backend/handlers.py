@@ -1,5 +1,4 @@
 # internal
-from config import OPEN_AI_KEY, NEWS_API_KEY
 from services import fetch_data
 from backend.services import openai_client
 from services.sentiment import get_prediction
