@@ -25,6 +25,9 @@ def handle_get_sentiment(ticker: str):
 def handle_get_basic_data(ticker: str):
     return yahoo_client.get_basic_stock_data(ticker)
 
+def handle_get_stock_data(ticker: str):
+    return yahoo_client.get_stock_data(ticker)
+
 def handle_get_submissions(ticker: str):
     return sec_client.get_submissions(ticker)
 
