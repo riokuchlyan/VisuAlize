@@ -6,9 +6,11 @@ import requests
 
 # built-in
 
+HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+
 def get_submissions(ticker):
     try:
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+        headers = HEADERS
         CIK = getCIK(ticker)
         url = f"https://data.sec.gov/submissions/CIK{CIK}.json"
         
@@ -24,7 +26,7 @@ def get_submissions(ticker):
     
 def get_company_concept(ticker):
     try:
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+        headers = HEADERS
         CIK = getCIK(ticker)
         url = f"https://data.sec.gov/api/xbrl/companyconcept/CIK{CIK}/us-gaap/AccountsPayableCurrent.json"
         
@@ -40,7 +42,7 @@ def get_company_concept(ticker):
     
 def get_company_facts(ticker):
     try:
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+        headers = HEADERS
         CIK = getCIK(ticker)
         url = f"https://data.sec.gov/api/xbrl/companyfacts/CIK{CIK}.json"
         

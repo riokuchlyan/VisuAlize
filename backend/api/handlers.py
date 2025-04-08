@@ -2,6 +2,7 @@
 from config import OPEN_AI_KEY, NEWS_API_KEY
 from services import fetch_data
 from backend.services import openai_client
+from services.sentiment import get_prediction
 
 # external
 
@@ -15,3 +16,6 @@ def handle_get_ai_analysis_technicals(ticker: str):
 
 def handle_get_ai_analysis_valuation(ticker: str):
     return openai_client.get_ai_response_valuation(fetch_data.get_basic_data(ticker))
+
+def handle_get_sentiment(ticker: str):
+    return get_prediction(ticker)

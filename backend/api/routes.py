@@ -1,6 +1,5 @@
 # internal
 from services import fetch_data
-from services import ai_analysis
 from services import sentiment
 import handlers
 
@@ -66,7 +65,7 @@ def basic_data():
 
 @router.get("/sentiment")
 def get_sentiment():
-    return sentiment.getPrediction(latest_ticker)
+    return handlers.handle_get_sentiment(latest_ticker)
 
 @router.get("/technicals")
 def get_technicals():
