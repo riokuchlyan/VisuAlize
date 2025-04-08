@@ -1,5 +1,5 @@
 # internal
-from backend import handlers
+from handlers import *
 
 # external
 from fastapi import APIRouter 
