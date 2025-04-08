@@ -1,6 +1,5 @@
 # internal
 from services import fetch_data
-from services import sentiment
 import handlers
 
 # external
