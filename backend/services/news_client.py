@@ -1,7 +1,7 @@
 # internal
+from config import NEWS_API_KEY
 
 # external
-from dotenv import load_dotenv
 import requests
 
 # built-in
@@ -9,7 +9,6 @@ import json
 import os
 import re
 
-load_dotenv()
 
 url = 'https://newsapi.org/v2/everything?'
 
@@ -17,7 +16,7 @@ def getNews(query):
     parameters = {
         'q': str(query),
         'pageSize': 100,
-        'apiKey': os.getenv("NEWS_API_KEY")
+        'apiKey': NEWS_API_KEY
     }
     response = requests.get(url, params=parameters)
     response_json = response.json()

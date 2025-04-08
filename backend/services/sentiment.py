@@ -1,5 +1,5 @@
 # internal
-from api.news_api import getNews
+from backend.services.news_client import getNews
 from utils.sentiment_logic import sentiment_logic
 
 # external
