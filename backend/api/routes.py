@@ -6,6 +6,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel 
 from typing import Dict
 from fastapi.responses import PlainTextResponse
+from fastapi.responses import JSONResponse
 
 # built-in
 import json
@@ -64,6 +65,13 @@ def basic_data():
 @router.get("/sentiment")
 def get_sentiment():
     return handle_get_sentiment(latest_ticker)
+
+@router.get("/audio_summary")
+def get_audio_summary():
+    data = handle_get_ai_analysis_summary(latest_ticker)
+    encoded_audio = handle_text_to_audio(data)
+    audio_data_url = f"data:audio/mp3;base64,{encoded_audio}"
+    return JSONResponse(content={"audio_data": audio_data_url})
 
 @router.get("/technicals")
 def get_technicals():

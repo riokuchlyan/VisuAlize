@@ -11,6 +11,7 @@ import Sentiment, { toggleSentiment } from '../components/Sentiment';
 import Valuation, { toggleValuation } from '../components/Valuation';
 import WordCloud from '../components/WordCloud';
 import ReturnHome from '../components/ReturnHome';
+import AudioPlayer from '../components/AudioPlayer';
 
 const CompanyPage: React.FC = () => {
     const { ticker } = useParams();
@@ -22,9 +23,11 @@ const CompanyPage: React.FC = () => {
         <h3>General Information</h3>
         <StockData />
         <hr style={{ marginTop: "30px" }} />
-        <h3 style={{ marginTop: "30px", marginBottom: "30px" }}>Reports</h3>
+        <h3 style={{ marginTop: "20px", marginBottom: "30px" }}>Reports</h3>
         <Reports />
         <hr style={{ marginTop: "30px" }} />
+        <AudioPlayer />
+        <hr style={{ marginTop: "10px" }} />
         <ReturnHome />
       </div>
       <div id="middle" className='box'>

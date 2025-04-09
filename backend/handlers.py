@@ -4,6 +4,7 @@ from services import openai_client
 from services import sentiment
 from services import yahoo_client
 from utils.get_cik import get_CIK
+from utils.text_to_audio import text_to_audio
 from services import sec_client
 
 # external
@@ -21,6 +22,9 @@ def handle_get_ai_analysis_valuation(ticker: str):
 
 def handle_get_sentiment(ticker: str):
     return sentiment.get_prediction(ticker)
+
+def handle_text_to_audio(text: str):
+    return text_to_audio(text)
 
 def handle_get_basic_data(ticker: str):
     return yahoo_client.get_basic_stock_data(ticker)
