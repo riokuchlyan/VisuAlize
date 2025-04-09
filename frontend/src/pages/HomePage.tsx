@@ -1,6 +1,5 @@
 import React from 'react';
 import TickerInput from '../components/TickerInput';
-import Login from '../components/Auth/Login';
 
 const HomePage: React.FC = () => {
   return (
