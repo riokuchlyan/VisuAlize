@@ -28,5 +28,5 @@ def get_stock_data(ticker, period="1mo"):
     stock = yf.Ticker(ticker)
     hist = stock.history(period=period)
     data = hist[['Close']].reset_index()
-    data['Date'] = data['Date'].astype(str) 
-    return data.to_dict(orient="records")
+    data['Date'] = data['Date'].astype(str)
+    return json.dumps(data.to_dict(orient="records"))
