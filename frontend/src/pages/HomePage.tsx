@@ -1,5 +1,6 @@
 import React from 'react';
 import TickerInput from '../components/TickerInput';
+import Login from '../components/Auth/Login';
 
 const HomePage: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const HomePage: React.FC = () => {
       }}
     >
       <h1>Welcome to VisuAlize</h1>
-      <p>
+      <p style={{margin: '0 20px'}}>
         Visualize your stock data instantly. Simply enter a stock ticker below to get started and see your data come to life.
       </p>
       <div
@@ -30,6 +31,9 @@ const HomePage: React.FC = () => {
         }}
       >
         <TickerInput />
+      </div>
+      <div style={{ marginTop: '30px' }}>
+        <a href="/login">Login</a>
       </div>
     </div>
   );

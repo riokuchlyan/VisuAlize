@@ -12,9 +12,11 @@ import Valuation, { toggleValuation } from '../components/Valuation';
 import WordCloud from '../components/WordCloud';
 import ReturnHome from '../components/ReturnHome';
 import AudioPlayer from '../components/AudioPlayer';
+import GoToTickersList from '../components/GoToTickersList';
 
 const CompanyPage: React.FC = () => {
     const { ticker } = useParams();
+    const user = true; 
   return (
     <>
       <div id="left" className='box'>
@@ -22,13 +24,13 @@ const CompanyPage: React.FC = () => {
         <hr />
         <h3>General Information</h3>
         <StockData />
-        <hr style={{ marginTop: "30px" }} />
-        <h3 style={{ marginTop: "20px", marginBottom: "30px" }}>Reports</h3>
+        <hr style={{ marginTop: "30px", marginBottom: "30px" }} />
         <Reports />
         <hr style={{ marginTop: "30px" }} />
         <AudioPlayer />
         <hr style={{ marginTop: "10px" }} />
         <ReturnHome />
+        <GoToTickersList />
       </div>
       <div id="middle" className='box'>
         <h2>Company Analysis for: {ticker?.toUpperCase()}</h2>
