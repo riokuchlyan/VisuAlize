@@ -5,10 +5,11 @@ function AudioPlayer() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/audio_summary')
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/audio_summary`)
       .then((response) => response.text())
       .then((link: string) => {
-        setAudioSrc(link);
+        console.log('Audio link:', link);
+        setAudioSrc(link.replace(/^"|"$/g, ''));
         setLoading(false);
       })
       .catch((error) => {
