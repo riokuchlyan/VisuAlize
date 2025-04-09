@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
-import { supabase } from '../supabaseClient';
+// internal
 import ReturnHome from '../components/ReturnHome';
+
+// external
+import { supabase } from '../supabaseClient';
+
+// built-in
+import React, { useState } from 'react';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>('');

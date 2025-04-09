@@ -1,5 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+// internal
+
+// external
 import * as d3 from "d3";
+
+// built-in
+import React, { useEffect, useRef, useState } from "react";
 
 const StockChart: React.FC = () => {
   const svgRef = useRef<SVGSVGElement | null>(null);

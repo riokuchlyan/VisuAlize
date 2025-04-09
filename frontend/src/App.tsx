@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// internal
 import './App.css';
 import Loading from './components/Loading';
 import HomePage from './pages/HomePage';
 import CompanyPage from './pages/CompanyPage';
 import Login from './pages/Login';
 import TickersList from './pages/TickersList';
+
+// external
+
+// built-in
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);

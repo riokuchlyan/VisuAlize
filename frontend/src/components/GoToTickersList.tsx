@@ -1,3 +1,9 @@
+// internal
+
+// external
+
+// built-in
+
 const GoToTickersList = () => {
 
     const TickersList = async () => {

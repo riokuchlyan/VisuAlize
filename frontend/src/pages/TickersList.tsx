@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient';
+// internal
 import { useAuth } from '../contexts/AuthContext';
 import ReturnHome from '../components/ReturnHome';
+
+// external
+import { supabase } from '../supabaseClient';
+
+// built-in
+import React, { useState, useEffect } from 'react';
 
 const TickersList: React.FC = () => {
   const { user } = useAuth();

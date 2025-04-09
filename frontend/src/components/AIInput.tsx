@@ -1,3 +1,8 @@
+// internal
+
+// external
+
+// built-in
 import React, { useState } from 'react';
 
 const AIInput = () => {

@@ -1,7 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+// internal
+
+// external
 import * as d3 from 'd3';
 // @ts-ignore
 import cloud from 'd3-cloud';
+
+// built-in
+import React, { useEffect, useRef, useState } from 'react';
+
 
 const WordCloud: React.FC = () => {
     const svgRef = useRef<SVGSVGElement>(null);

@@ -1,5 +1,4 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+// internal
 import StockData from '../components/BasicStockData';
 import AIInput from '../components/AIInput';
 import TickerInput from '../components/TickerInput';
@@ -14,6 +13,12 @@ import ReturnHome from '../components/ReturnHome';
 import AudioPlayer from '../components/AudioPlayer';
 import GoToTickersList from '../components/GoToTickersList';
 import { useAuth } from '../contexts/AuthContext';
+
+// external
+
+// built-in
+import React from 'react';
+import { useParams } from 'react-router-dom';
 
 const CompanyPage: React.FC = () => {
     const { ticker } = useParams();

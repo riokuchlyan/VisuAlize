@@ -1,5 +1,10 @@
-import React from 'react';
+// internal
 import './Loading.css';
+
+// external
+
+// built-in
+import React from 'react';
 
 const Loading: React.FC = () => {
   return (

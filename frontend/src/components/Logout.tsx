@@ -1,7 +1,12 @@
+// internal
+import { useAuth } from '../contexts/AuthContext';
+
+// external
+import { supabase } from '../supabaseClient';
+
+// built-in
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../supabaseClient';
-import { useAuth } from '../contexts/AuthContext';
 
 const Logout: React.FC = () => {
     const navigate = useNavigate();

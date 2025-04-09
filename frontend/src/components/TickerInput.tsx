@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
-import { supabase } from '../supabaseClient';
+// internal
 import { useAuth } from '../contexts/AuthContext';
+
+// external
+import { supabase } from '../supabaseClient';
+
+// built-in
+import React, { useState } from 'react';
 
 const TickerInput = () => {
 

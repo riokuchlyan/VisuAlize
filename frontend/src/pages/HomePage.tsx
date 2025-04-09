@@ -1,8 +1,13 @@
-import React from 'react';
+// internal
 import TickerInput from '../components/TickerInput';
 import { useAuth } from '../contexts/AuthContext';
 import Logout from '../components/Logout';
 import GoToTickersList from '../components/GoToTickersList';
+
+// external
+
+// built-in
+import React from 'react';
 
 const HomePage: React.FC = () => {
   const auth = useAuth();
