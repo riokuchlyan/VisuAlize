@@ -39,9 +39,6 @@ const TickersList: React.FC = () => {
       ) : (
         <p>No tickers found.</p>
       )}
-
-      <h2>Analysis</h2>
-      <p>Placeholder</p>
       
       <ReturnHome />
     </div>

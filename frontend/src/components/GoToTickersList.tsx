@@ -6,7 +6,7 @@ const GoToTickersList = () => {
 
     return (
         <div style={{ marginTop: "15px" }} className='input'>
-            <button onClick={TickersList}>Tickers and Analysis</button>
+            <button onClick={TickersList}>Tickers List</button>
           </div>
     );
 }
