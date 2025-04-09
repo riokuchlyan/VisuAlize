@@ -43,7 +43,6 @@ const TickerInput = () => {
           
             if (error) {
               console.error("Supabase insert error:", error);
-              alert(`Supabase error: ${error.message}`);
             } else {
               console.log("Ticker inserted successfully.");
             }

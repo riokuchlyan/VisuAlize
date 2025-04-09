@@ -13,8 +13,7 @@ const TickersList: React.FC = () => {
       if (user) {
         const { data, error } = await supabase
           .from('user_data')
-          .select('ticker_symbol')
-          .eq('user_id', user.id) as { data: { ticker_symbol: string }[] | null; error: any };
+          .select('ticker_symbol') as { data: { ticker_symbol: string }[] | null; error: any };
         if (error) {
           console.error('Error fetching tickers:', error);
         } else {
