@@ -6,9 +6,9 @@ function AudioPlayer() {
 
   useEffect(() => {
     fetch('/audio_summary')
-      .then((response) => response.json())
-      .then((data) => {
-        setAudioSrc(data.audio_data);
+      .then((response) => response.text())
+      .then((link: string) => {
+        setAudioSrc(link);
         setLoading(false);
       })
       .catch((error) => {
