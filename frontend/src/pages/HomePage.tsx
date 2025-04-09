@@ -26,7 +26,6 @@ const HomePage: React.FC = () => {
       </p>
       <div
         style={{
-          border: "1px solid #ccc",
           borderRadius: "8px",
           padding: "20px",
           marginTop: "20px",
