@@ -73,6 +73,11 @@ def get_audio_summary():
     audio_data_url = f"data:audio/mp3;base64,{encoded_audio}"
     return JSONResponse(content={"audio_data": audio_data_url})
 
+@router.get("/summary")
+def get_summary():
+    data = handle_get_ai_analysis_summary(latest_ticker)
+    return JSONResponse(content={"summary": data})
+
 @router.get("/technicals")
 def get_technicals():
     return handle_get_ai_analysis_technicals(latest_ticker)
