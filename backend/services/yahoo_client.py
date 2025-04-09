@@ -28,5 +28,17 @@ def get_stock_data(ticker, period="1mo"):
     stock = yf.Ticker(ticker)
     hist = stock.history(period=period)
     data = hist[['Close']].reset_index()
-    data['Date'] = data['Date'].astype(str)
-    return json.dumps(data.to_dict(orient="records"))
+    data['Date'] = data['Date'].astype(str) 
+    return data.to_dict(orient="records")
+
+def save_close_values_to_json(ticker, period="1mo", interval="1d"):
+    stock = yf.Ticker(ticker)
+    df = stock.history(period=period, interval=interval)
+    df.reset_index(inplace=True)
+    data = []
+    for _, row in df.iterrows():
+        data.append({
+            "date": row["Date"].strftime("%Y-%m-%d"),
+            "close": round(row["Close"], 2)
+        })
+    return json.dumps(data)

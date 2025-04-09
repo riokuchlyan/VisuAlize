@@ -30,7 +30,7 @@ def handle_get_basic_data(ticker: str):
     return yahoo_client.get_basic_stock_data(ticker)
 
 def handle_get_stock_data(ticker: str):
-    return yahoo_client.get_stock_data(ticker)
+    return yahoo_client.save_close_values_to_json(ticker)
 
 def handle_get_submissions(ticker: str):
     return sec_client.get_submissions(ticker)
