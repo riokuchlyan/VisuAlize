@@ -3,28 +3,22 @@ import { supabase } from '../supabaseClient';
 import { useAuth } from '../contexts/AuthContext';
 import ReturnHome from '../components/ReturnHome';
 
-interface Ticker {
-  id: number;
-  ticker_symbol: string;
-  submitted_at: string;
-}
-
 const TickersList: React.FC = () => {
   const { user } = useAuth();
-  const [tickers, setTickers] = useState<Ticker[]>([]);
+  const [tickers, setTickers] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchTickers = async () => {
       if (user) {
         const { data, error } = await supabase
-  .from('tickers')
-  .select('*')
-  .eq('user_id', user.id) as { data: Ticker[] | null; error: any };
+          .from('user_data')
+          .select('ticker_symbol')
+          .eq('user_id', user.id) as { data: { ticker_symbol: string }[] | null; error: any };
         if (error) {
           console.error('Error fetching tickers:', error);
         } else {
-          setTickers(data ?? []);
+          setTickers(data?.map(t => t.ticker_symbol) ?? []);
         }
         setLoading(false);
       }
@@ -39,13 +33,17 @@ const TickersList: React.FC = () => {
       <h2>Your Submitted Tickers</h2>
       {tickers.length > 0 ? (
         <ul>
-          {tickers.map((ticker) => (
-            <li key={ticker.id}>{ticker.ticker_symbol}</li>
+          {tickers.map((ticker, index) => (
+            <li key={index}>{ticker}</li>
           ))}
         </ul>
       ) : (
         <p>No tickers found.</p>
       )}
+
+      <h2>Analysis</h2>
+      <p>Placeholder</p>
+      
       <ReturnHome />
     </div>
   );

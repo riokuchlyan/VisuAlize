@@ -1,7 +1,11 @@
 import React from 'react';
 import TickerInput from '../components/TickerInput';
+import { useAuth } from '../contexts/AuthContext';
+import Logout from '../components/Logout';
+import GoToTickersList from '../components/GoToTickersList';
 
 const HomePage: React.FC = () => {
+  const auth = useAuth();
   return (
     <div
       style={{
@@ -30,10 +34,18 @@ const HomePage: React.FC = () => {
         }}
       >
         <TickerInput />
+      
       </div>
       <div style={{ marginTop: '30px' }}>
-        <a href="/login">Login</a>
-      </div>
+        {auth.currentUser ? (
+          <span>Welcome back, {auth.currentUser.email}
+            <GoToTickersList />
+            <Logout />
+          </span>
+        ) : (
+          <a href="/login">Login</a>
+        )}
+        </div>
     </div>
   );
 };

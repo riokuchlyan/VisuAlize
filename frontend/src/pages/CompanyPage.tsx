@@ -13,10 +13,11 @@ import WordCloud from '../components/WordCloud';
 import ReturnHome from '../components/ReturnHome';
 import AudioPlayer from '../components/AudioPlayer';
 import GoToTickersList from '../components/GoToTickersList';
+import { useAuth } from '../contexts/AuthContext';
 
 const CompanyPage: React.FC = () => {
     const { ticker } = useParams();
-    const user = true; 
+    const auth = useAuth();
   return (
     <>
       <div id="left" className='box'>
@@ -28,9 +29,15 @@ const CompanyPage: React.FC = () => {
         <Reports />
         <hr style={{ marginTop: "30px" }} />
         <AudioPlayer />
-        <hr style={{ marginTop: "10px" }} />
+        <hr style={{ marginTop: "10px", marginBottom: "30px"}} />
+        {auth.currentUser ? (
+          <span>
+            <GoToTickersList />
+          </span>
+        ) : (
+          <a href="/login">Login</a>
+        )}
         <ReturnHome />
-        <GoToTickersList />
       </div>
       <div id="middle" className='box'>
         <h2>Company Analysis for: {ticker?.toUpperCase()}</h2>

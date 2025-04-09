@@ -30,6 +30,7 @@ const Login: React.FC = () => {
       if (error) {
         setErrorMsg(error.message);
       }
+      window.location.href = "/";
     }
   };
 

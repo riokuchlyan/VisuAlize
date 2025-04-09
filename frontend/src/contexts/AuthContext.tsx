@@ -3,6 +3,7 @@ import { supabase } from '../supabaseClient';
 import { Session, User } from '@supabase/supabase-js';
 
 interface AuthContextType {
+  currentUser: any;
   user: User | null;
   session: Session | null;
 }
@@ -35,7 +36,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, session }}>
+    <AuthContext.Provider value={{ currentUser: user, user, session }}>
       {children}
     </AuthContext.Provider>
   );

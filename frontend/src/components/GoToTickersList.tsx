@@ -1,5 +1,3 @@
-import React from 'react';
-
 const GoToTickersList = () => {
 
     const TickersList = async () => {
@@ -8,7 +6,7 @@ const GoToTickersList = () => {
 
     return (
         <div style={{ marginTop: "15px" }} className='input'>
-            <button onClick={TickersList}>Tickers List</button>
+            <button onClick={TickersList}>Tickers and Analysis</button>
           </div>
     );
 }
