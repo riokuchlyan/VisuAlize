@@ -8,7 +8,7 @@ import requests
 
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
 
-def get_submissions(ticker):
+def get_submissions(ticker: str) -> dict:
     try:
         headers = HEADERS
         CIK = get_CIK(ticker)
@@ -24,7 +24,7 @@ def get_submissions(ticker):
     except Exception as e:
         return {"error": str(e)} 
     
-def get_company_concept(ticker):
+def get_company_concept(ticker: str) -> dict:
     try:
         headers = HEADERS
         CIK = get_CIK(ticker)
@@ -40,7 +40,7 @@ def get_company_concept(ticker):
     except Exception as e:
         return {"error": str(e)} 
     
-def get_company_facts(ticker):
+def get_company_facts(ticker: str) -> dict:
     try:
         headers = HEADERS
         CIK = get_CIK(ticker)

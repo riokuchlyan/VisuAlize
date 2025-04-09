@@ -6,7 +6,7 @@ import yfinance as yf
 # built-in
 import json
 
-def get_basic_stock_data(ticker):
+def get_basic_stock_data(ticker: str) -> str:
     stock = yf.Ticker(ticker)
     info = stock.info
     basic_data = {
@@ -24,14 +24,14 @@ def get_basic_stock_data(ticker):
     }
     return json.dumps(basic_data)
 
-def get_stock_data(ticker, period="1mo"):
+def get_stock_data(ticker: str, period: str = "1mo") -> list[dict]:
     stock = yf.Ticker(ticker)
     hist = stock.history(period=period)
     data = hist[['Close']].reset_index()
     data['Date'] = data['Date'].astype(str) 
     return data.to_dict(orient="records")
 
-def save_close_values_to_json(ticker, period="1mo", interval="1d"):
+def save_close_values_to_json(ticker: str, period: str = "1mo", interval: str = "1d") -> str:
     stock = yf.Ticker(ticker)
     df = stock.history(period=period, interval=interval)
     df.reset_index(inplace=True)

@@ -11,7 +11,7 @@ client = OpenAI(
   api_key=OPEN_AI_KEY
 )
 
-def get_ai_response(data, input_text):
+def get_ai_response(data: str, input_text: str) -> str:
     completion = client.chat.completions.create(
     model="gpt-4o-mini",
     store=True,
@@ -21,7 +21,7 @@ def get_ai_response(data, input_text):
     )
     return (completion.choices[0].message.content)
 
-def get_ai_response_technicals(data):
+def get_ai_response_technicals(data: str) -> str:
     completion = client.chat.completions.create(
     model="gpt-4o-mini",
     store=True,
@@ -31,7 +31,7 @@ def get_ai_response_technicals(data):
     )
     return (completion.choices[0].message.content)
 
-def get_ai_response_valuation(data):
+def get_ai_response_valuation(data: str) -> str:
     completion = client.chat.completions.create(
     model="gpt-4o-mini",
     store=True,
@@ -41,7 +41,7 @@ def get_ai_response_valuation(data):
     )
     return (completion.choices[0].message.content)
 
-def get_ai_response_summary(data):
+def get_ai_response_summary(data: str) -> str:
     completion = client.chat.completions.create(
     model="gpt-4o-mini",
     store=True,
