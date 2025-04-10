@@ -9,7 +9,7 @@ import uvicorn
 # built-in
 import os
 
-app = FastAPI()
+app: FastAPI = FastAPI()
 
 app.include_router(router)
 

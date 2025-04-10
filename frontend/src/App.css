@@ -85,6 +85,7 @@ input:focus {
   align-items: center;
   padding: 10px;
   width: 98vw;
+  overflow-x: hidden;
 }
 
 .box {
@@ -102,6 +103,7 @@ input:focus {
   margin: 10px;
   height: 90vh;
   overflow: scroll;
+  overflow-x: hidden;
 }
 
 .box::before {
