@@ -25,6 +25,7 @@ body {
   justify-content: center;
   font-size: 14px;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 hr {
@@ -168,6 +169,10 @@ input:focus {
 }
 
 @media screen and (max-width: 1200px) {
+  body{
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
   .app {
     flex-direction: column;
   }
