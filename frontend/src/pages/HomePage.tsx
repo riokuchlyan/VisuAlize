@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
             <Logout />
           </span>
         ) : (
-          <a href="/login">Login</a>
+          <a href="/login">Login/Sign Up</a>
         )}
         </div>
     </div>
