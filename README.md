@@ -28,6 +28,14 @@ VisuAlize enables users to input a company name or stock ticker and receive AI-p
 - **No Paywalls**  
   - Unlike traditional financial analysis tools, VisuAlize provides unrestricted access to its reports and insights.  
 
+- **User Authentication with Supabase**  
+  - Secure login and authentication system powered by **Supabase**.  
+  - Users can sign up, log in, and manage their personal dashboard.  
+
+- **Personal Stock List Feature**  
+  - Tracks and lists all companies the user has researched.  
+  - Provides quick access to previously analyzed stocks.
+
 ## Project Structure  
 
 ### Backend (FastAPI)  
@@ -38,6 +46,7 @@ VisuAlize enables users to input a company name or stock ticker and receive AI-p
   - Uses AI/ML models for financial insights.  
   - Generates structured market reports.  
   - Processes chat-based queries for company analysis.  
+  - Integrates with **Supabase** for managing user authentication and storing user-specific data.
 
 ### Frontend (React + TypeScript)  
 - **Developed with React and TypeScript**, providing a seamless and responsive user interface.  
@@ -47,6 +56,7 @@ VisuAlize enables users to input a company name or stock ticker and receive AI-p
   - Dynamic graphs rendered with **D3.js**.  
   - Chat-style interface for AI-driven company analysis.  
   - Clean and modern UI for financial insights.  
+  - Includes user dashboard with login functionality and a stock history feature for revisiting past searches.
 
 ## Usage Instructions  
 
@@ -62,5 +72,3 @@ VisuAlize enables users to input a company name or stock ticker and receive AI-p
 - **Expanded AI capabilities** for deeper trend analysis.  
 - **Integration of alternative data sources** (news sentiment, macroeconomic trends).  
 - **Mobile-friendly interface optimizations.**  
-
----
