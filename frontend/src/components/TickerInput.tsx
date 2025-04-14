@@ -35,25 +35,34 @@ const TickerInput = () => {
           if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
           }
-      
+
           const data = await response.json();
-          setResponse(data);
 
-          if (user) {
-            const { error } = await supabase
-              .from('user_data')
-              .insert([
-                { user_id: user.id, ticker_symbol: ticker.toUpperCase() },
-              ]);
-          
-            if (error) {
-              console.error("Supabase insert error:", error);
-            } else {
-              console.log("Ticker inserted successfully.");
+          const cik = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cik`);
+          const cikText: string = await cik.text();
+
+          if (cikText) {
+            setResponse(data);
+            window.location.href = '/company/' + ticker;
+            console.log("Prediction data:", data);
+            if (user) {
+              const { error } = await supabase
+                .from('user_data')
+                .insert([
+                  { user_id: user.id, ticker_symbol: ticker.toUpperCase() },
+                ]);
+            
+              if (error) {
+                console.error("Supabase insert error:", error);
+              } else {
+                console.log("Ticker inserted successfully.");
+              }
             }
-          }
-
-          window.location.href = '/company/' + ticker;
+          } 
+          else {
+            alert("Please enter a valid stock ticker.")
+          }          
+ 
         } catch (error) {
           console.error("Error fetching prediction:", error);
           alert("Error fetching prediction. Check console for details.");

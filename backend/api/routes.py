@@ -95,3 +95,7 @@ def stock_data() -> Any:
 def get_news() -> Any:
     data = handle_get_news_data(latest_ticker)
     return json.loads(data)
+
+@router.get("/cik")
+def get_cik() -> str:
+    return handle_return_cik(latest_ticker)

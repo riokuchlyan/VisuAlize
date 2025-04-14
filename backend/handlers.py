@@ -43,3 +43,6 @@ def handle_get_news_data(ticker: str):
 
 def handle_get_ai_analysis_summary(ticker: str):
     return openai_client.get_ai_response_summary(handle_get_basic_data(ticker))
+
+def handle_return_cik(ticker: str): 
+    return get_CIK(ticker)
