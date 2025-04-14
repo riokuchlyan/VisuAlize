@@ -41,7 +41,7 @@ const TickerInput = () => {
           const cik = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cik`);
           const cikText: string = await cik.text();
 
-            if (cikText.substring(1, cikText.length - 1).length == 10) {
+            if (cikText.substring(1, cikText.length - 1).length === 10) {
               if (user) {
                 const { error } = await supabase
                 .from('user_data')
