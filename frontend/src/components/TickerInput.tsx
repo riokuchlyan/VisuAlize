@@ -42,27 +42,25 @@ const TickerInput = () => {
           const cikText: string = await cik.text();
 
             if (cikText.substring(1, cikText.length - 1).length == 10) {
-            setResponse(data);
-            window.location.href = '/company/' + ticker;
-            console.log("Prediction data:", data);
-            
+              if (user) {
+                const { error } = await supabase
+                .from('user_data')
+                .insert([
+                  { user_id: user.id, ticker_symbol: ticker.toUpperCase() },
+                ]);
+              
+                if (error) {
+                console.error("Supabase insert error:", error);
+                } else {
+                console.log("Ticker inserted successfully.");
+                }
+              }
+              setResponse(data);
+              window.location.href = '/company/' + ticker;
+              console.log("Prediction data:", data);
             } 
             else {
-            alert("Please enter a valid stock ticker.")
-            }
-
-            if (user) {
-              const { error } = await supabase
-              .from('user_data')
-              .insert([
-                { user_id: user.id, ticker_symbol: ticker.toUpperCase() },
-              ]);
-            
-              if (error) {
-              console.error("Supabase insert error:", error);
-              } else {
-              console.log("Ticker inserted successfully.");
-              }
+              alert("Please enter a valid stock ticker.")
             }
  
         } catch (error) {
