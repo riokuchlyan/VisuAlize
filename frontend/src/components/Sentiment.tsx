@@ -31,7 +31,7 @@ const Sentiment: React.FC = () => {
 
     return(
     <div id='sentiment'>
-        {data}
+        {data.substring(1, data.length - 1)}
     </div>
 )
 }

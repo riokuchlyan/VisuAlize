@@ -31,7 +31,7 @@ const Valuation: React.FC = () => {
 
     return(
     <div id='valuation'>
-        <p>{data}</p>
+        <p>{data.substring(1, data.length - 1)}</p>
     </div>
 )
 }

@@ -31,7 +31,7 @@ const Technicals: React.FC = () => {
 
     return(
     <div id='technicals'>
-        <p>{data}</p>
+        <p>{data.substring(1, data.length - 1)}</p>
     </div>
 )
 }
