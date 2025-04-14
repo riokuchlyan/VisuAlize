@@ -32,9 +32,9 @@ const TickerInput = () => {
           body: JSON.stringify({ ticker }),
           });
       
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-          }
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            }
 
           const data = await response.json();
 
@@ -45,6 +45,12 @@ const TickerInput = () => {
             setResponse(data);
             window.location.href = '/company/' + ticker;
             console.log("Prediction data:", data);
+            
+            } 
+            else {
+            alert("Please enter a valid stock ticker.")
+            }
+
             if (user) {
               const { error } = await supabase
               .from('user_data')
@@ -57,11 +63,6 @@ const TickerInput = () => {
               } else {
               console.log("Ticker inserted successfully.");
               }
-            }
-            
-            } 
-            else {
-            alert("Please enter a valid stock ticker.")
             }
  
         } catch (error) {
