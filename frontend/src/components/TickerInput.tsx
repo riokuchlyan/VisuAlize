@@ -25,15 +25,15 @@ const TickerInput = () => {
       
         try {
           const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/ticker`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ticker }),
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ticker }),
           });
       
-          if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
           }
 
           const data = await response.json();
@@ -41,27 +41,28 @@ const TickerInput = () => {
           const cik = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cik`);
           const cikText: string = await cik.text();
 
-          if (cikText) {
+            if (cikText.substring(1, cikText.length - 1).length == 10) {
             setResponse(data);
             window.location.href = '/company/' + ticker;
             console.log("Prediction data:", data);
             if (user) {
               const { error } = await supabase
-                .from('user_data')
-                .insert([
-                  { user_id: user.id, ticker_symbol: ticker.toUpperCase() },
-                ]);
+              .from('user_data')
+              .insert([
+                { user_id: user.id, ticker_symbol: ticker.toUpperCase() },
+              ]);
             
               if (error) {
-                console.error("Supabase insert error:", error);
+              console.error("Supabase insert error:", error);
               } else {
-                console.log("Ticker inserted successfully.");
+              console.log("Ticker inserted successfully.");
               }
             }
-          } 
-          else {
+            
+            } 
+            else {
             alert("Please enter a valid stock ticker.")
-          }          
+            }
  
         } catch (error) {
           console.error("Error fetching prediction:", error);
