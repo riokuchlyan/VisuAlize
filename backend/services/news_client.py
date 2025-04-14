@@ -6,7 +6,6 @@ import requests
 
 # built-in
 import json
-import os
 import re
 
 url = 'https://newsapi.org/v2/everything?'
