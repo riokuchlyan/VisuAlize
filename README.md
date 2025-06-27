@@ -1,4 +1,4 @@
-# VisuAlize: AI-Generated Visual Market Reports  
+# [VisuAlize: AI-Generated Visual Market Reports](https://visualize-navy.vercel.app)  
 
 **VisuAlize** is a full-stack web application that provides AI-driven financial analysis and interactive market reports, allowing users to analyze stock tickers through intuitive visualizations and dynamic insights.  
 
@@ -17,7 +17,7 @@ VisuAlize enables users to input a company name or stock ticker and receive AI-p
   - Uses machine learning techniques to extract and summarize key financial insights.  
 
 - **Chat-Style Financial Queries**  
-  - Interactive chat interface where users can ask specific questions about a company’s performance, financials, or trends.  
+  - Interactive chat interface where users can ask specific questions about a company's performance, financials, or trends.  
   - AI-powered responses provide in-depth analysis with data-driven explanations.  
 
 - **Dynamic Financial Visualizations**  
